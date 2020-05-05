@@ -1,1 +1,11 @@
 theme: jekyll-theme-merlot
+# Site settings
+title: ZhuJD-Blog                    # 你的博客网站标题
+SEOTitle: ZJD的博客 | ZhuJD-Blog		# SEO 标题
+description: "Hey"	   	   # 随便说点，描述一下
+
+# SNS settings      
+github_username: ZhuJD-China     # 你的github账号
+
+# Build settings
+# paginate: 10              # 一页你准备放几篇文章
