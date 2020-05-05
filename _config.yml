@@ -2,10 +2,16 @@ theme: jekyll-theme-merlot
 # Site settings
 title: ZhuJD-Blog                    # 你的博客网站标题
 SEOTitle: ZJD的博客 | ZhuJD-Blog		# SEO 标题
-description: "Hey"	   	   # 随便说点，描述一下
+description: "Hey Friends"	   	   # 随便说点，描述一下
 
 # SNS settings      
 github_username: ZhuJD-China     # 你的github账号
 
 # Build settings
 # paginate: 10              # 一页你准备放几篇文章
+
+
+# Sidebar settings
+sidebar: true  #添加侧边栏
+sidebar-about-description: "简单的描述一下你自己"
+sidebar-avatar: /img/avatar-by.jpg     #你的大头贴，请使用绝对地址.注意：名字区分大小写！后缀名也是
