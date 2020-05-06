@@ -9,9 +9,93 @@
     <link href="../assets/css/ll-css.css" rel="stylesheet">
     <link href="../assets/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/railscasts.css">
+    <link rel="stylesheet" href="../assets/css/main.css" />
 </head>
 <body>
+<header id="header">
+    <h1><a href="../index.html">祝佳栋的博客</a></h1>
+    <nav class="links">
+        <ul>
+            <li><a href="#">Blog List</a></li>
+            <li><a href="../DailyLife/Dilary.html">Daily Life-Diary</a></li>
+            <li><a href="#">About Me</a></li>
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="#">
+                    <input type="text" name="query" placeholder="Search" />
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<!-- Menu -->
+<section id="menu">
 
+    <!-- Search -->
+    <section>
+        <form class="search" method="get" action="#">
+            <input type="text" name="query" placeholder="Search" />
+        </form>
+    </section>
+
+    <!-- Links -->
+    <section>
+        <ul class="links">
+            <li>
+                <a href="#">
+                    <h3>Blog List</h3>
+                    <p>进来看一看呀！</p>
+                </a>
+            </li>
+            <li>
+                <a href="../DailyLife/Dilary.html">
+                    <h3>My Diary</h3>
+                    <p>我的日记</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/ZhuJD-China">
+                    <h3>GitHub</h3>
+                    <p>ZhuJD-China</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.zhihu.com/people/zhujd-35">
+                    <h3>知乎</h3>
+                    <p>有问题,上知乎。ZhuJD Deep Learing</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://me.csdn.net/qq_44244431">
+                    <h3>CSDN</h3>
+                    <p>CSDN全球知名中文IT技术交流平台</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.cnblogs.com/ZhuJD/">
+                    <h3>博客园</h3>
+                    <p>博客园是一个面向开发者的知识分享社区</p>
+                </a>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Actions -->
+    <section>
+        <ul class="actions stacked">
+            <li><a href="#" class="button large fit">Log In</a></li>
+        </ul>
+    </section>
+
+</section>
+<!-- ------------------------------------------------------------------- -->
 <div class="ll-header container-fluid">
     <div class="ll-logo">
         <a href="#">
@@ -85,5 +169,11 @@
 <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
 <script src="../assets/js/Bloglist/highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
+<!-- Scripts -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/main.js"></script>
 </body>
 </html>
