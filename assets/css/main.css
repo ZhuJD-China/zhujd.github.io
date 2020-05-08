@@ -3618,25 +3618,25 @@ body.is-menu-visible #menu {
 }
 .box{
     margin: auto;
-    height: 400px;
-    width: 400px;
+    height: 300px;
+    width: 300px;
     position: relative;
     display: block;
     margin-top: 5%;
 }
 .head{
-    height: 400px;
-    width: 400px;
+    height: 300px;
+    width: 300px;
     border-radius: 50%;
 }
 .lefteye{
     position: absolute;
-    height: 100px;
-    width: 100px;
+    height: 50px;
+    width: 50px;
     border: solid var(--main-part-color) 10px;
     border-color: var(--main-part-color) transparent transparent transparent;
-    top: 35%;
-    left: 20%;
+    top: 25%;
+    left: 5%;
     animation-name: lefteyewink;
     animation-duration: 3s;
     animation-iteration-count: infinite;
@@ -3644,12 +3644,12 @@ body.is-menu-visible #menu {
 }
 .righteye{
     position: absolute;
-    height: 100px;
-    width: 100px;
+    height: 50px;
+    width: 50px;
     border: solid var(--main-part-color) 10px;
     border-color: var(--main-part-color) transparent transparent transparent;
-    top: 35%;
-    left: 60%;
+    top: 25%;
+    left: 25%;
     animation-name: righteyewink;
     animation-duration: 3s;
     animation-iteration-count: infinite;
@@ -3658,12 +3658,12 @@ body.is-menu-visible #menu {
 .mouth{
     position: absolute;
     height: 0px;
-    width: 300px;
+    width: 250px;
     border: solid var(--main-part-color) 10px;
     border-radius: 0 0 50% 50%;
     border-color: transparent transparent var(--main-part-color) transparent;
     top: 70%;
-    left: 15%;
+    left: 10%;
     animation-name: smile;
     animation-duration: 3s;
     animation-iteration-count: infinite;
