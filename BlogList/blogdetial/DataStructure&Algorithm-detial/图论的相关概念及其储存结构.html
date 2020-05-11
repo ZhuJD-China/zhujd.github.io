@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ZhuJD Blog</title>
+    <link href="../../../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../../assets/css/ll-css.css" rel="stylesheet">
+    <link href="../../../assets/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../assets/css/railscasts.css">
+    <link rel="icon" href="../../../images/开心.png" type="image/x-icon"/>
+</head>
+<body>
+<div class="ll-header container-fluid">
+    <div class="ll-logo">
+        <a href="../../../BlogList/Blog-index.html">
+            <h1>ZhuJD Blog Studio</h1>
+            <p>一个装满知识和乐趣的铺子</p>
+        </a>
+    </div>
+</div>
+<div class="ll-cantainer container">
+    <div class="ll-artical-content">
+        <h2 class="ll-artical-title">图论的相关概念及其储存结构</h2>
+        <div class="ll-card-tag">
+            <div class="">
+                <img src="../../../images/logo.jpg" class="img-fluid rounded-circle" alt="Responsive image">
+                <span class="text-success">祝佳栋</span>
+            </div>
+            <div><i class="fa fa-clock-o"></i> 2020-05-11 21:00</div>
+        </div>
+        <div class="ll-artical">
+            <p>图论 (Graph theory) 是数学的一个分支，图是图论的主要研究对象。 图 (Graph)
+                是由若干给定的顶点及连接两顶点的边所构成的图形，这种图形通常用来描述某些事物之间的某种特定关系。通常表示成： G(V，E) G
+                表示一个圆，V是图中顶点的集合，E是图中边的集合。顶点用于代表事物，连接两顶点的边则用于表示两个事物间具有这种关系。</p>
+
+            <h3>一.各种图的定义</h3>
+            <p>1.无向边：若顶点Vi到Vj之间的边没有方向，则称这条边为无向边(Edge)，用无序偶(Vi,Vj)来表示。</p>
+            <img style="display:block;margin:0 auto" width="250" height="200" src="../../../images/无向图.png">
+
+            <p>2.有向边：若从顶点Vi到Vj的边有方向，则称这条边为有向边，也成为弧(Arc)，用有序偶< Vi, Vj >来表示，Vi称为弧尾，Vj称为弧头。</p>
+            <img style="display:block;margin:0 auto" width="250" height="200" src="../../../images/有向图.png">
+
+            <p>3.简单图：在图结构中，若不存在顶点到其自身的边，且同一条边不重复出现，则称这样的图为简单图。</p>
+
+            <p>4.无向完全图：在无向图中，如果任意两个顶点之间都存在边，则称该图为无向完全图。含有n个顶点的无向完全图有n*(n-1)/2条边。</p>
+
+            <p>5.有向完全图：在有向图中，如果任意两个顶点之间都存在方向互为相反的两条弧，则称该图为有向完全图。含有n个顶点的有向完全图有n*(n-1)条边。</p>
+
+            <p>6.稀疏图和稠密图：这里的稀疏和稠密是模糊的概念，都是相对而言的，通常认为边或弧数小于n*logn（n是顶点的个数）的图称为稀疏图，反之称为稠密图。</p>
+
+            <p>7.有些图的边或弧带有与它相关的数字，这种与图的边或弧相关的数叫做权(Weight)，带权的图通常称为网(Network)。</p>
+
+            <p>8.假设有两个图G1=(V1,E1)和G2=(V2,E2)，如果V2⊆V1，E2⊆E1，则称G2为G1的子图(Subgraph)。</p>
+
+            <h3>二.图的顶点与边之间的关系</h3>
+            <p>
+                1.对于无向图G=(V,E)，如果边(V1,V2)∈E，则称顶点V1和V2互为邻接点(Adjacent)，即V1和V2相邻接。边(V1,V2)依附(incident)于顶点V1和V2，或者说边(V1,V2)与顶点V1和V2相关联。</p>
+            <p>2.顶点V的度(Degree)是和V相关联的边的数目，记为TD(V)，如下图，顶点A与B互为邻接点，边(A,B)依附于顶点A与B上，顶点A的度为3。</p>
+            <p>3.对于有向图G=(V,E)，如果有< V1,V2>∈E，则称顶点V1邻接到顶点V2，顶点V2邻接自顶点V1。</p>
+            <p>4.以顶点V为头的弧的数目称为V的入度(InDegree)，记为ID(V)，以V为尾的弧的数目称为V的出度(OutDegree)，记为OD(V)，因此顶点V的度为TD(V)=ID(V)+OD(V)。</p>
+            <p>5.无向图G=(V,E)中从顶点V1到顶点V2的路径(Path)。</p>
+            <p>6.如果G是有向图，则路径也是有向的。</p>
+            <p>7.路径的长度是路径上的边或弧的数目。 </p>
+            <p>8.第一个顶点到最后一个顶点相同的路径称为回路或环(Cycle)。</p>
+            <p>9.序列中顶点不重复出现的路径称为简单路径，除了第一个顶点和最后一个顶点之外，其余顶点不重复出现的回路，称为简单回路或简单环。</p>
+            <h3>三.连通图</h3>
+            <p>1.在无向图G中，如果从顶点V1到顶点V2有路径，则称V1和V2是连通的，如果对于图中任意两个顶点Vi和Vj都是连通的，则称G是连通图(ConnectedGraph)</p>
+            <p>2.无向图中的极大连通子图称为连通分量。
+                注意以下概念：
+                (1)首先要是子图，并且子图是要连通的；
+                (2)连通子图含有极大顶点数；
+                (3)具有极大顶点数的连通子图包含依附于这些顶点的所有边。
+            </p>
+
+            <p>3.在有向图G中，如果对于每一对Vi到Vj都存在路径，则称G是强连通图。
+                有向图中的极大强连通子图称为有向图的强连通分量。</p>
+            <p>4.最后我们再来看连通图的生成树定义。
+                所谓的一个连通图的生成树是一个极小的连通子图，它含有图中全部的n个顶点，但只有足以构成一棵树的n-1条边。
+            </p>
+            <p>5.如果一个有向图恰有一个顶点入度为0，其余顶点的入度均为1，则是一棵有向树。</p>
+
+
+
+            <pre>
+                    <code>
+
+#include < iostream >
+using namespace std;
+int main()
+{
+    cout << "Hello, world!" << endl;
+    return 0;
+}
+                    </code>
+                </pre>
+
+            <blockquote>
+               Hello World!
+            </blockquote>
+
+
+        </div>
+
+
+        <div class="container-fluid ll-footer">
+            <div class="container">
+                <p class="ll-footer-link"><a href="https://github.com/ZhuJD-China">访问我GitHub</a></p>
+                <a href="https://github.com/ZhuJD-China"><p class="ll-copyright">GitHub Pages</p></a>
+                <p class="ll-copyright">copyright @ 2019~2020 ZhuJD </p>
+            </div>
+        </div>
+        <script src="../../../assets/jquery/jquery.min.js"></script>
+        <script src="../../../assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="../../../assets/js/Bloglist/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+    </div>
+</div>
+</body>
+</html>
