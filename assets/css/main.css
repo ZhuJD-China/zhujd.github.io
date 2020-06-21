@@ -3612,7 +3612,7 @@ body.is-menu-visible #menu {
 
 }
 
-/*-----------------------------smile-----------------------*/
+/*-----------------------------摩天轮-----------------------*/
 
 .ferris-wheel {
     position: relative;
@@ -3854,8 +3854,22 @@ body.is-menu-visible #menu {
     transform: rotate(77deg);
 }
 
-/*-----------------------------smile-----------------------*/
+/*-----------------------------摩天轮-----------------------*/
 
+
+/*------------------love----------------------------*/
+@keyframes pulse {
+    100% { transform: scale3d(1.2,1.2,1.2)}
+}
+
+svg {
+    max-width: 100vmin;
+    max-height: 100vmin;
+    display: block;
+    margin: 0 auto;
+    animation: pulse 1s ease-in-out alternate infinite
+}
+/*--------------love--------------------------------*/
 
 
 /*-----------------------------AboutME-----------------------*/
